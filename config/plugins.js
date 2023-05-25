@@ -5,17 +5,19 @@ module.exports = ({ env }) => ({
       },
     },
     upload: {
-      config: {
-        provider: 'cloudinary',
-        providerOptions: {
-          cloud_name: env('CLOUDINARY_NAME'),
-          api_key: env('CLOUDINARY_KEY'),
-          api_secret: env('CLOUDINARY_SECRET'),
-        },
-        actionOptions: {
-          upload: {},
-          delete: {},
-        },
+    provider: 'local',
+    providerOptions: {
+      // Configurações específicas do seu servidor compartilhado
+      server: {
+        host: 'ftp.peoplemanager.com.br',
+        port: 21, // Porta do servidor (FTP) ou 22 (SSH)
+        user: 'u362384337.peoplemanager.com.br',
+        password: 'Isadopai12345@',
+        // Caminho para o diretório onde as imagens serão armazenadas
+        basePath: '/uploads_images',
+        // URL base para acessar as imagens
+        baseUrl: 'https://peoplemanager.com.br/casadomenino/uploads_images/',
       },
     },
+  },
   });
